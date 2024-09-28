@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "./react.css"; // Custom CSS for styling
 
 const Navbar = ({ detailsRef, scheduleRef, registerRef, organizersRef }) => {
-  // Added registerRef and organizersRef as props
   const [isOpen, setIsOpen] = useState(false); // State to track toggle button
   const menuRef = useRef(null); // Ref to track menu element
+  const navbarHeight = 70; // Set this to the height of your sticky navbar (in pixels)
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen); // Toggle the state
@@ -27,34 +27,12 @@ const Navbar = ({ detailsRef, scheduleRef, registerRef, organizersRef }) => {
     };
   }, []);
 
-  // Scroll to the details section when "About the Event" is clicked
-  const scrollToDetails = () => {
-    if (detailsRef && detailsRef.current) {
-      detailsRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsOpen(false); // Close the navbar after scrolling
-  };
-
-  // Scroll to the schedule section when "Schedule" is clicked
-  const scrollToSchedule = () => {
-    if (scheduleRef && scheduleRef.current) {
-      scheduleRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsOpen(false); // Close the navbar after scrolling
-  };
-
-  // Scroll to the register section when "Register" is clicked
-  const scrollToRegister = () => {
-    if (registerRef && registerRef.current) {
-      registerRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsOpen(false); // Close the navbar after scrolling
-  };
-
-  // Scroll to the organizers section when "Organizers" is clicked
-  const scrollToOrganizers = () => {
-    if (organizersRef && organizersRef.current) {
-      organizersRef.current.scrollIntoView({ behavior: "smooth" });
+  // Generic scroll function with offset for sticky navbar
+  const scrollToSection = (sectionRef) => {
+    if (sectionRef && sectionRef.current) {
+      const yOffset = -navbarHeight; // Offset for sticky navbar
+      const yPosition = sectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: yPosition, behavior: "smooth" });
     }
     setIsOpen(false); // Close the navbar after scrolling
   };
@@ -72,27 +50,25 @@ const Navbar = ({ detailsRef, scheduleRef, registerRef, organizersRef }) => {
       </div>
       <ul className={`navbar-links ${isOpen ? "open" : ""}`} ref={menuRef}>
         <li>
-          <a href="#about" onClick={scrollToDetails}>
+          <a href="#about" onClick={() => scrollToSection(detailsRef)}>
             About the Event
           </a>
         </li>
         <li>
-          <a href="#register" onClick={scrollToRegister}>
+          <a href="#register" onClick={() => scrollToSection(registerRef)}>
             Register
           </a>
-        </li>{" "}
-        {/* Added smooth scroll to register */}
+        </li>
         <li>
-          <a href="#schedule" onClick={scrollToSchedule}>
+          <a href="#schedule" onClick={() => scrollToSection(scheduleRef)}>
             Schedule
           </a>
         </li>
         <li>
-          <a href="#organizers" onClick={scrollToOrganizers}>
+          <a href="#organizers" onClick={() => scrollToSection(organizersRef)}>
             Organizers
           </a>
-        </li>{" "}
-        {/* Added smooth scroll to organizers */}
+        </li>
       </ul>
     </nav>
   );
