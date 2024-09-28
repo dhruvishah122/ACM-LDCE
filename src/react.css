@@ -1,0 +1,132 @@
+/* Main Navbar Styling */
+.navbar {
+  background-color: #00509e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  max-width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Logo and Title */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo .logo {
+  width: 80px;
+  height: auto;
+  margin-right: 15px;
+  padding-left: 10px;
+}
+
+.navbar-logo h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* Navbar Links for Desktop */
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+}
+
+.navbar-links li {
+  display: inline-block;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  background-color: #ffcc00;
+  color: #00509e;
+}
+
+/* Toggle Button (Hamburger) */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar-toggle .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.navbar-toggle .line.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle .line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle .line.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: fixed; /* Change to fixed for overlay effect */
+    top: 0;
+    right: 0; /* Align to right */
+    height: 100vh;
+    width: 300px; /* Set a specific width for the menu */
+    background-color: #00509e;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start */
+    gap: 30px;
+    transform: translateX(100%); /* Start hidden to the right */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .navbar-links.open {
+    transform: translateX(0); /* Show when toggled */
+    opacity: 1;
+  }
+
+  .navbar-links li {
+    display: block;
+    width: 100%;
+    text-align: left; /* Align text to the left */
+  }
+
+  .navbar-links a {
+    width: 100%;
+    padding: 20px;
+    font-size: 24px;
+  }
+}
