@@ -6,7 +6,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 800px; /* Control width of the container */
-  margin: auto; /* Center the container */
+  margin: auto;
   text-align: center;
 }
 
@@ -24,7 +24,8 @@
 .theme-text {
   font-size: 20px;
   font-style: italic;
-  color: #ffcc00; /* Theme text color */
+  font-weight: bold;
+  color: #fcb914; /* Theme text color */
   margin-bottom: 30px;
 }
 
