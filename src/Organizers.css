@@ -1,19 +1,26 @@
-.organizers-container {
+.organizers-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .organizers-card {
+    background-color: #f9f9f9; /* Gray background only for the card */
     padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for card effect */
+    max-width: 800px; /* Limit the width of the card */
+    width: 100%; /* Full width until max-width */
   }
   
   .organizers-grid {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px;
   }
   
   .organizers-column {
     flex: 1;
-    min-width: 300px; /* Ensures responsive layout */
-    padding: 10px;
   }
   
   .organizer-group {
@@ -21,18 +28,14 @@
   }
   
   .organizer-group h3 {
+    font-size: 18px;
     color: #003366;
-    font-weight: 600;
+    margin-bottom: 5px;
   }
   
   .organizer-group p {
+    margin: 0;
+    font-size: 16px;
     color: #333;
-    margin: 5px 0;
-  }
-  
-  @media (max-width: 768px) {
-    .organizers-grid {
-      flex-direction: column;
-    }
   }
   

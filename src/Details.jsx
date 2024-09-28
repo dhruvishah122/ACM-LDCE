@@ -44,6 +44,7 @@ const styles = {
     maxWidth: '800px',
     margin: 'auto',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    display:  'inline-block'
   },
   section: {
     marginBottom: '30px',
