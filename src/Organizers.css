@@ -7,9 +7,10 @@
   border: 1px solid #ccc;
   width: 80%; /* Change the width for responsiveness */
   margin: 0 auto;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Gray shadow effect */
-  border-radius: 8px; /* Rounded corners */
-  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  border-radius: 10px;
+  background-color: #f9f9f9; /* White background */
 }
 
 .organizers-grid {
